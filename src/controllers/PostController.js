@@ -1,4 +1,4 @@
-import { posts } from "../data.js";
+import { posts } from "../db.js";
 import tryCatch from "../utils/tryCatch.js";
 
 class PostController {

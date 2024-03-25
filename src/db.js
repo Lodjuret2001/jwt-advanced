@@ -2,11 +2,9 @@ import User from "./utils/User.js";
 import Post from "./utils/Post.js";
 
 const users = [
-  new User(1, "Lodjuret2001", "123456789"),
-  new User(2, "Lodjuret2001", "123456789"),
-  new User(3, "Lodjuret2001", "123456789"),
-  new User(4, "Lodjuret2001", "123456789"),
-  new User(5, "Lodjuret2001", "123456789"),
+  new User(1, "Lodjuret2001", "SuccsessPassword"),
+  new User(2, "Lodjuret2002", 123),
+  new User(3, 2003, "ValidationError"),
 ];
 
 const posts = [
