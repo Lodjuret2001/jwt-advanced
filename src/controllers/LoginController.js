@@ -10,13 +10,17 @@ const loginSchema = Joi.object({
 });
 
 class LoginController {
-  tryLogin = tryCatch(async (req, res, next) => {
-    console.log(req.body);
-    const logInUser = req.body;
-    const { error } = loginSchema.validate(logInUser);
+  tryLogin = tryCatch(async (req, res) => {
+    const { username, password } = req.body;
+
+    const usersData = await axios.get("/api/users");
+    const users = usersData.data;
+    const user = users.find((u) => u.username === username);
+
+    if (!user) throw new Error("Given username was not found...");
+    const { error } = loginSchema.validate({ username, password });
     if (error) throw error;
 
-    const user = await axios.get(`/api/users/${logInUser}`);
     const token = jwt.sign({ user: user }, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: "1m",
     });
