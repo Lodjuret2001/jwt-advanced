@@ -10,13 +10,13 @@ GET http://localhost:3000/api/users
 GET http://localhost:3000/api/users/1
 
 ###
-GET http://localhost:3000/api/user/Lodjuret2001
+GET http://localhost:3000/api/user/Lodjuret2002
 
 ###
 POST http://localhost:3000/api/login
 Content-Type: application/json
 
 {
-    "username": "Lodjuret2001",
+    "username": "Lodjuret2002",
     "password": "SuccsessPassword"
 }

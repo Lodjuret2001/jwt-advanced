@@ -3,10 +3,18 @@ import { postRoutes } from "./routes/postRoutes.js";
 import { loginRoutes } from "./routes/loginRoutes.js";
 import { afterLogger, beforeLogger } from "./middleware/logger.js";
 import errorHandler from "./middleware/errorHandler.js";
+import cookieParser from "cookie-parser";
 import express from "express";
 const app = express();
 
-app.use(express.json(), beforeLogger, userRoutes, postRoutes, loginRoutes);
+app.use(
+  express.json(),
+  cookieParser(),
+  beforeLogger,
+  userRoutes,
+  postRoutes,
+  loginRoutes
+);
 
 app.use(errorHandler, afterLogger);
 

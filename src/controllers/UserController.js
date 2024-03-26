@@ -16,16 +16,5 @@ class UserController {
     if (!user) throw new Error("Could not find a user with the given id");
     res.send(user);
   });
-
-  getUsername = tryCatch(async (req, res) => {
-    const username = req.params.username;
-    const response = await axios.get("/api/users");
-    const users = response.data;
-    const user = users.find((u) => u.username === username);
-
-    if (!user)
-      throw new Error(`Could not find a user with the username: ${username}`);
-    res.send(user);
-  });
 }
 export default UserController = new UserController();
