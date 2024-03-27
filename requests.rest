@@ -1,22 +1,25 @@
-GET http://localhost:3000/api/posts
+GET http://localhost:3000/api/mockdb/posts
 
 ###
-GET http://localhost:3000/api/posts/1
+GET http://localhost:3000/api/mockdb/users
 
 ###
-GET http://localhost:3000/api/users
+GET http://localhost:3000/api/posts/user
 
 ###
-GET http://localhost:3000/api/users/1
+GET http://localhost:3000/api/post/4
 
 ###
-GET http://localhost:3000/api/user/Lodjuret2002
+GET http://localhost:3000/api/user/1
 
 ###
 POST http://localhost:3000/api/login
 Content-Type: application/json
 
 {
-    "username": "Lodjuret2002",
+    "username": "Lodjuret2001",
     "password": "SuccsessPassword"
 }
+
+###
+DELETE http://localhost:3000/api/logout

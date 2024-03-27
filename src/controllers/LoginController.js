@@ -11,11 +11,11 @@ const loginSchema = Joi.object({
 });
 
 class LoginController {
-  tryLogin = tryCatch(async (req, res) => {
-    const expiresTime = "1m";
+  logIn = tryCatch(async (req, res) => {
+    const expireTime = "1m";
     const { username, password } = req.body;
 
-    const usersData = await axios.get("/api/users");
+    const usersData = await axios.get("/api/mockdb/users");
     const users = usersData.data;
     const user = users.find((u) => u.username === username);
 
@@ -23,19 +23,27 @@ class LoginController {
     const { error } = loginSchema.validate({ username, password });
     if (error) throw error;
 
-    const accsessToken = jwt.sign(
+    const accsess_token = jwt.sign(
       { user: user },
       process.env.ACCESS_TOKEN_SECRET,
       {
-        expiresIn: expiresTime,
+        expiresIn: expireTime,
       }
     );
-    res.cookie("accsessToken", accsessToken, {
+    res.cookie("accsess_token", accsess_token, {
       httpOnly: true,
       sameSite: "strict",
-      expires: new Date(Date.now() + parseTimeDuration(expiresTime)),
+      expires: new Date(Date.now() + parseTimeDuration(expireTime)),
     });
     res.send("Logged in successfully!");
+  });
+
+  logOut = tryCatch(async (req, res) => {
+    res.clearCookie("accsess_token", {
+      httpOnly: true,
+      strict: true,
+    });
+    res.send("You logged out! :)");
   });
 }
 export default LoginController = new LoginController();
