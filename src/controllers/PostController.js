@@ -13,7 +13,7 @@ class PostController {
   });
 
   getUserPosts = tryCatch(async (req, res) => {
-    const username = req.user.user.username;
+    const username = req.user.username;
     const postsData = await axios.get("/api/mockdb/posts");
     const posts = postsData.data;
 

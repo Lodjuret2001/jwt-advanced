@@ -1,19 +1,20 @@
+###Simulates a query to fetch all posts
 GET http://localhost:3000/api/mockdb/posts
 
-###
+### Simulates a query to fetch all users
 GET http://localhost:3000/api/mockdb/users
 
-###
+### Protected Path
 GET http://localhost:3000/api/posts/user
 
-###
+### Protected Path
 GET http://localhost:3000/api/post/4
 
-###
+### Protected path
 GET http://localhost:3000/api/user/1
 
 ###
-POST http://localhost:3000/api/login
+POST http://localhost:4000/api/login
 Content-Type: application/json
 
 {
@@ -22,4 +23,4 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/api/logout
+DELETE http://localhost:4000/api/logout
