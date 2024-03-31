@@ -5,6 +5,7 @@ import { afterLogger, beforeLogger } from "./middleware/logger.js";
 import errorHandler from "./middleware/errorHandler.js";
 import cookieParser from "cookie-parser";
 import express from "express";
+import mongoose from "mongoose";
 const app = express();
 
 app.use(
@@ -13,8 +14,13 @@ app.use(
   beforeLogger,
   mockDbRoutes,
   userRoutes,
-  postRoutes,
+  postRoutes
 );
+
+mongoose
+  .connect("mongodb://localhost:27017/jwt-advanced")
+  .then(() => console.log("Connected to MongoDB..."))
+  .catch(() => console.log("Could not connect to MongoDB..."));
 
 app.use(errorHandler, afterLogger);
 
