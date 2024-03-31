@@ -1,0 +1,32 @@
+[
+  {
+    "_id": 1,
+    "title": "Title 1",
+    "author": 1,
+    "content": "Dummy content"
+  },
+  {
+    "_id": 2,
+    "title": "Title 2",
+    "author": 1,
+    "content": "Dummy content"
+  },
+  {
+    "_id": 3,
+    "title": "Title 3",
+    "author": 2,
+    "content": "Dummy content"
+  },
+  {
+    "_id": 4,
+    "title": "Title 4",
+    "author": 1,
+    "content": "Dummy content"
+  },
+  {
+    "_id": 5,
+    "title": "Title 5",
+    "author": 2,
+    "content": "Dummy content"
+  }
+]

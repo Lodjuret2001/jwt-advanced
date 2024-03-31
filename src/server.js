@@ -1,6 +1,5 @@
 import { userRoutes } from "./routes/userRoutes.js";
 import { postRoutes } from "./routes/postRoutes.js";
-import { mockDbRoutes } from "./routes/mockDbRoutes.js";
 import { afterLogger, beforeLogger } from "./middleware/logger.js";
 import errorHandler from "./middleware/errorHandler.js";
 import cookieParser from "cookie-parser";
@@ -12,7 +11,6 @@ app.use(
   express.json(),
   cookieParser(),
   beforeLogger,
-  mockDbRoutes,
   userRoutes,
   postRoutes
 );
