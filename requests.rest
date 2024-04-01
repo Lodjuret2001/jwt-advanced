@@ -1,26 +1,29 @@
-###Simulates a query to fetch all posts
-GET http://localhost:3000/api/mockdb/posts
-
-### Simulates a query to fetch all users
-GET http://localhost:3000/api/mockdb/users
-
-### Protected Path
+### Protected Path (Editor or Admin Role)
 GET http://localhost:3000/api/posts/user
 
-### Protected Path
+### Protected Path (Editor or Admin Role)
 GET http://localhost:3000/api/post/4
 
-### Protected path
+### Protected path (Only Admin Role)
 GET http://localhost:3000/api/user/1
 
-###
+### Protected path (Only Admin Role)
+GET http://localhost:3000/api/roles/admin 
+
+### Protected path (Only Editor Role)
+GET http://localhost:3000/api/roles/editor 
+
+### Protected path (Only Viewer Role)
+GET http://localhost:3000/api/roles/viewer 
+
+### LOGIN
 POST http://localhost:4000/api/login
 Content-Type: application/json
 
 {
     "username": "Lodjuret2001",
-    "password": "SuccsessPassword"
+    "password": "SomePassword"
 }
 
-###
+### LOGOUT
 DELETE http://localhost:4000/api/logout

@@ -1,8 +1,9 @@
+import dbController from "../utils/dbFunctions.js";
 import tryCatch from "../utils/tryCatch.js";
 import parseTimeDuration from "../utils/parseTimeDuration.js";
 import generateAccsessToken from "../utils/generateAccsessToken.js";
 import generateRefreshToken from "../utils/generateRefreshToken.js";
-import axios from "../config/axiosConfig.js";
+
 import Joi from "joi";
 
 const loginSchema = Joi.object({
@@ -16,8 +17,7 @@ class LoginController {
   logIn = tryCatch(async (req, res) => {
     const { username, password } = req.body;
 
-    const usersData = await axios.get("/api/mockdb/users");
-    const users = usersData.data;
+    const users = await dbController.getUsers();
     const user = users.find((u) => u.username === username);
 
     if (!user) throw new Error("Given username was not found...");

@@ -1,4 +1,4 @@
-# JWT Project: Simple Posts
+# JWT-ADVANCED Project: Simple Posts
 
 This project demonstrates how to implement JSON Web Tokens (JWT) for user authentication and authorization in a Node.js application. It consists of two servers: one for handling authentication and token generation, and another for serving the API routes. Users can log in to access protected routes and perform various actions, such as fetching posts and user data.
 
@@ -15,32 +15,44 @@ This project demonstrates how to implement JSON Web Tokens (JWT) for user authen
 
 Follow these steps to set up and run the project:
 
-1. Clone the repository:
+1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/Lodjuret2001/simple-posts.git
+git clone https://github.com/Lodjuret2001/jwt-advanced.git
 ```
 
-2. Install dependencies for both servers:
+2. **Install dependencies for both servers:**
 
 ```bash
 cd simple-posts
 npm install
 ```
 
-3. Start the Auth Server:
+3. **Start the Auth Server:**
 
 ```bash
 npm run startAuthServer
 ```
 
-4. Start the API Server:
+4. **Start the API Server:**
 
 ```bash
 npm run startApiServer
 ```
 
-5. Once both servers are running, you can simulate requests using the provided REST file (`requests.rest`). This file contains sample requests for fetching posts, users, logging in, and logging out.
+5. **Database Setup:**
+
+   - This project utilizes a MongoDB database. Make sure you have MongoDB installed and running on your system.
+   - Dummy JSON data is provided in the `data` folder. You can import it into your MongoDB database for testing purposes.
+
+6. **API Endpoints and Role-Based Authorization:**
+
+   - The API endpoints now utilize the user's role property and a middleware to check if the user has the role permission to access the endpoint.
+   - Endpoints are structured based on different roles:
+     - `/api/roles/admin` - Requires the "admin" role.
+     - `/api/roles/editor` - Requires the "editor" role.
+     - `/api/roles/viewer` - Requires the "viewer" role.
+   - Middleware function `verifyRole` checks if the user has the required role permission.
 
 ## Authentication and Authorization
 
