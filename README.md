@@ -18,7 +18,7 @@ Follow these steps to set up and run the project:
 1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/Lodjuret2001/simple-posts.git
+git clone https://github.com/Lodjuret2001/jwt-advanced.git
 ```
 
 2. **Install dependencies for both servers:**
